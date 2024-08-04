@@ -30,6 +30,14 @@ namespace TestProject3
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
+        [TearDown]
+        public void TearDown()
+        {
+            // Quit the driver
+            driver.Quit();
+            driver.Dispose();
+        }
+
         [Test]
         public void TestSelectFromDropDown()
         {
@@ -90,9 +98,7 @@ namespace TestProject3
                 }
             }
 
-            // Quit the driver
-            driver.Quit();
-            driver.Dispose();
+            
         }
     }
 }
